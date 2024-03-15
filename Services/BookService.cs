@@ -1,9 +1,9 @@
-using bookstoreapi.Models;
+using capp.Models;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using System.Threading.Tasks.Dataflow;
-namespace bookstoreapi.Services;
+namespace capp.Services;
 
 public static class BookService{
     static List<Book> Books { get; } = new List<Book>();

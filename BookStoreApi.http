@@ -1,6 +1,28 @@
-@BookStoreApi_HostAddress = http://localhost:5202
+@BookStoreApi_HostAddress = http://localhost:5088
 
 GET {{BookStoreApi_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+
+GET {{BookStoreApi_HostAddress}}/book/?query=harrypotter
+Accept: application/json
+
+# POST {{capp_HostAddress}}/pizza/
+# Content-Type: application/json
+
+# {
+#     "name": "Pineapple",
+#     "IsGlutenFree": false
+# }
+
+# ###
+
+# PUT {{capp_HostAddress}}/pizza/3
+# Content-Type: application/json
+
+# {
+#     "id": 1,
+#     "name": "Classic Italian",
+#     "isGlutenFree": true
+# }

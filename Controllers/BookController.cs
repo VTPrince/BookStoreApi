@@ -1,5 +1,5 @@
-using bookstoreapi.Models;
-using bookstoreapi.Services;
+using capp.Models;
+using capp.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace capp.Controllers;
