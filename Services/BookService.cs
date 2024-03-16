@@ -6,11 +6,10 @@ using System.Threading.Tasks.Dataflow;
 namespace capp.Services;
 
 public static class BookService{
-    static List<Book> Books { get; } = new List<Book>();
-    static int nextId = 0;
+
     static HttpClient client = new HttpClient();
 
-    public static async Task AddBooks(string query){
+    public static async Task AddBooks(string query, List<Book> books, int nextId){
         string url = $"https://www.googleapis.com/books/v1/volumes?q=intitle:{query}";
         string response = await client.GetStringAsync(url);
         JObject data = JObject.Parse(response);
@@ -24,13 +23,15 @@ public static class BookService{
             string author = string.Join(", ", authorsList);
 
             Book book = new Book { Id = nextId++, Title = title, Author = author };
-            Books.Add(book);
+            books.Add(book);
         }
     }
 
     public static async Task<List<Book>> GetBooks(string query) {
-        await AddBooks(query);
-        return Books;
+        List<Book> books = new List<Book>();
+        int bookId = 0;
+        await AddBooks(query, books, bookId);
+        return books;
     }
 
 }
